@@ -1,0 +1,14 @@
+<h1 class="p-3">New game</h1>
+
+<ul class="list-inline px-3">
+  <% @rand_letter.each do |letter| %>
+    <li class="list-inline-item px-3 py-2 bg-primary text-white shadow rounded"><%= letter %></li>
+  <% end %>
+</ul>
+<form action="score" method="post" data-turbo="false" class="p-3">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag 'letters', @rand_letter %>
+  <p>You're word</p>
+  <input type="text" name="score">
+  <input type="submit" value="Play">
+</form>
